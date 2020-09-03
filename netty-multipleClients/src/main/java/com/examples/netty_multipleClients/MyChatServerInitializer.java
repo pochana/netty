@@ -16,7 +16,6 @@ public class MyChatServerInitializer extends  ChannelInitializer<SocketChannel>{
 		ChannelPipeline pipeline = ch.pipeline();
 		 //DelimiterBasedFrameDecoder : netty custom decoder, mainly based on delimiter parsing
 		pipeline.addLast(new DelimiterBasedFrameDecoder(4096,Delimiters.lineDelimiter()));
-		pipeline.addLast(new FixedLengthFrameDecoder(10));
 		pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
 		pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
 		 pipeline.addLast(new MyChatServerHandler());//Processing for one-to-many link mode
